@@ -18,7 +18,7 @@ paru -S omarchy-installers
 
 ### Manual installation
 
-Clone the repository, change your working directory to it, and run ~makepkg -si~.
+Clone the repository, change your working directory to it, and run makepkg -si.
 
 ~~~bash
 git clone https://aur.archlinux.org/packages/omarchy-installers
