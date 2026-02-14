@@ -1,5 +1,6 @@
 #!/bin/bash
 # Fuzzy-finder for installing packages from pacman repos (including CachyOS repos)
+# Actually automatic this time, promise
 
 fzf_args=(
   --multi
@@ -24,13 +25,14 @@ if [[ -n "$pkg_names" ]]; then
   echo "$pkg_names"
   echo ""
 
-  # Install with confirmation (because --noconfirm is for people who enjoy broken systems)
-  echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -S
+  # Install with --noconfirm like the original, because apparently that was important
+  echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -S --noconfirm
 
+  # Update locate database in the background
   if command -v updatedb &>/dev/null; then
     echo ""
-    echo "Updating locate database..."
-    sudo updatedb
+    echo "Updating locate database in background..."
+    sudo updatedb &
   fi
 
   echo ""
