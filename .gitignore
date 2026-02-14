@@ -31,3 +31,5 @@ src/
 # Temporary test directories (if you ever get around to testing)
 test/
 tmp/
+
+.SRCINFO
