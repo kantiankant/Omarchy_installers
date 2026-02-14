@@ -21,7 +21,7 @@ paru -S omarchy-installers
 Clone the repository, change your working directory to it, and run makepkg -si.
 
 ~~~bash
-git clone https://aur.archlinux.org/packages/omarchy-installers
+git clone https://github.com/kantiankant/Omarchy_installers.git  
 cd omarchy-installers
 makepkg -si
 ~~~
