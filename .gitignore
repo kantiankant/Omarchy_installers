@@ -1,0 +1,33 @@
+# Build artifacts (because we don't commit our mess, thank you very much)
+*.tar.gz
+*.tar.xz
+*.tar.zst
+*.pkg.tar.*
+
+# Built packages
+pkg/
+src/
+
+# makepkg temporary files
+*.log
+
+# Generated source info (this gets regenerated, you absolute muppet)
+# Actually, NO - .SRCINFO should be committed for AUR packages
+# But I'll leave this here commented so you know I considered it
+
+# Your editor's inevitable detritus
+*.swp
+*.swo
+*~
+.*.sw?
+
+# IDE rubbish
+.vscode/
+.idea/
+
+# macOS being macOS (in case you're one of *those* people)
+.DS_Store
+
+# Temporary test directories (if you ever get around to testing)
+test/
+tmp/
