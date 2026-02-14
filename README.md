@@ -1,7 +1,7 @@
 
 # 1.0: Introduction
 
-Welcome to **omarchy-installers**. This package is composed of two programs: `pacfetch` and `aurfetch`. These programs are ports of the TUI wrappers Omarchy uses for package installation.
+Welcome to **omarchy-installers**. This package is composed of two programs: `pacfetch` and `aurfetch`. These programs are ports of the TUI wrappers Omarchy uses for package installation, but now for every other Arch-based distribution.
 
 *   **pacfetch:** Fetches packages from the official Arch repositories.
 *   **aurfetch:** Fetches packages from the Arch User Repository (AUR).
