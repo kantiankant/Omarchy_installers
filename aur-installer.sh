@@ -29,15 +29,14 @@ if [[ -n "$pkg_names" ]]; then
   echo ""
   echo "Installing selected packages..."
   echo ""
-
   readarray -t packages <<<"$pkg_names"
-
   yay -S "${packages[@]}"
 
+  # Update locate database in the background like a sensible human being
   if command -v updatedb &>/dev/null; then
     echo ""
-    echo "Updating locate database..."
-    sudo updatedb
+    echo "Updating locate database in background..."
+    sudo updatedb &
   fi
 
   echo ""
