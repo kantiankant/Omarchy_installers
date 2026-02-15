@@ -1,6 +1,5 @@
 #!/bin/bash
 # Fuzzy-finder for installing packages from pacman repos (including CachyOS repos)
-# Actually automatic this time, promise
 
 fzf_args=(
   --multi
@@ -16,28 +15,16 @@ fzf_args=(
   --prompt 'Package: '
 )
 
-echo "Fetching package list from all repositories (including CachyOS)..."
 pkg_names=$(pacman -Slq | fzf "${fzf_args[@]}")
 
 if [[ -n "$pkg_names" ]]; then
-  echo ""
-  echo "Selected packages:"
-  echo "$pkg_names"
-  echo ""
-
-  # Install with --noconfirm like the original, because apparently that was important
   echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -S --noconfirm
 
   # Update locate database in the background
   if command -v updatedb &>/dev/null; then
-    echo ""
-    echo "Updating locate database in background..."
     sudo updatedb &
   fi
 
-  echo ""
-  echo "✓ Installation complete!"
-  echo ""
-else
-  echo "No packages selected."
+  echo
+  gum spin --spinner "globe" --title "Done! Press any key to close..." -- bash -c 'read -n 1 -s'
 fi
